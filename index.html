@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Collection App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="back-img">
+        <div id="title-img"></div>
+        <nav>
+            <button onclick="switchSection('pokemon-list')">Lista Pokémon</button>
+            <button onclick="switchSection('my-pokemon')">My Pokémon</button>
+        </nav>
+    </header>
+
+    <main> 
+        <section id="pokemon-list" class="section">
+            <img src="PoK-MoN-18-11-2024.2.gif" alt="Lista Pokémon" class="section-title">
+            <input type="text" id="search-pokemon" placeholder="Cerca un Pokémon..." /> <!-- Barra di ricerca -->
+           
+            <div id="pokemon-cards-container" class="cards-container"></div>
+        </section>
+    
+        <section id="my-pokemon" class="section hidden">
+            <img src="PoK-MoN-18-11-2024.gif" alt="My Pokémon" class="section-title">
+            <input type="text" id="search-pokemon" placeholder="Cerca un Pokémon..." /> <!-- Barra di ricerca -->
+            
+            <div id="my-pokemon-cards-container" class="cards-container"></div>
+        </section>
+    </main>
+
+    <div id="pokemon-modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h3 id="modal-pokemon-name"></h3>
+            <img id="modal-pokemon-image" src="" alt="Pokémon Image">
+            <p><strong>Tipo:</strong> <span id="modal-pokemon-type"></span></p>
+            <p><strong>Abilità:</strong> <span id="modal-pokemon-abilities"></span></p>
+            <ul id="modal-pokemon-stats"></ul>
+        </div>
+    </div>
+
+    
+
+    <footer>
+        <p> Pokemon App by Leonardo Aiello and Singh Jespreet </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
