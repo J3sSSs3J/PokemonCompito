@@ -26,14 +26,18 @@ async function loadPokemon() {
         if (!response.ok) throw new Error("Errore di rete");
         
         const data = await response.json();
-        const caughtPokemonNames = getCaughtPokemonNames();
+        const caughtPokemonNames = new Set(getCaughtPokemonNames());
+        pokemonContainer.innerHTML = ''; // Svuota il contenitore per prevenire duplicati
+        const displayedPokemon = new Set(); // Per evitare duplicati visivi
 
-        // Usa un ciclo for...of per gestire correttamente le chiamate asincrone
         for (const pokemon of data.results) {
-            if (!caughtPokemonNames.includes(pokemon.name)) {
-                const pokemonData = await fetchPokemonData(pokemon.url);
-                displayPokemon(pokemonData);
+            if (caughtPokemonNames.has(pokemon.name) || displayedPokemon.has(pokemon.name)) {
+                continue;
             }
+            displayedPokemon.add(pokemon.name);
+
+            const pokemonData = await fetchPokemonData(pokemon.url);
+            displayPokemon(pokemonData);
         }
 
     } catch (error) {
@@ -41,6 +45,7 @@ async function loadPokemon() {
         console.error("Errore:", error);
     }
 }
+
 
 
 function getCaughtPokemonNames() {

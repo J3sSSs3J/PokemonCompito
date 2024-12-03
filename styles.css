@@ -14,15 +14,25 @@ body {
     height: auto;
     text-align: center;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Per evitare problemi di dimensioni */
+}
 
-#back-img{
-    background-image: url("https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/go/pokemon-party.jpg");
-    background-size: flex; 
+#back-img {
+    background-image: url("https://assets.pokemon.com/assets/cms2/img/misc/virtual-backgrounds/go/pokemon-party.jpg");
     background-position: center; 
     background-repeat: no-repeat; 
-    width: 1340px;
-    height: 450px; 
+    background-size: cover; /* Adatta l'immagine per coprire l'intero schermo */
+    width: 100vw; /* Larghezza al 100% della viewport */
+    height: 750px; /* Altezza al 100% della viewport */
+ 
+    
 }
+
+
+
 
 header {
     background-color: cadetblue;
